@@ -1,0 +1,17 @@
+.idea
+out
+target
+*.iml
+log
+*.patch
+node_modules
+**/templates_c
+
+
+frontend/src/rcstore.chitalka.co.il/Smarty/libs/templates_c
+msg/**
+
+#frontend/src/rcstore.chitalka.co.il/pay/msg
+
+/frontend/src/rcstore.chitalka.co.il/pay/msg/
+**/Thumbs.db
