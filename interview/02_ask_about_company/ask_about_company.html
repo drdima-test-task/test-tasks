@@ -1,0 +1,749 @@
+
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Исчерпывающий список вопросов, которые нужно задавать при устройстве на работу.">
+    <title>Ask About Company</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
+    <script src="./persistent-checkboxes.js"></script>
+    <script src="./application.js"></script>
+    <link rel="stylesheet" href="./style.css?v=1">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧐</text></svg>">
+</head>
+<body>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-3 col-xs-12 col-lg-2 position-fixed" id="fixed-sidebar">
+            <div class="text-center">
+                <a href="#" id="rise-and-shine">🌚</a>
+            </div>
+            <div id="language" class="text-center">
+                🇷🇺
+                <a href="ua.html">🇺🇦</a>
+            </div>
+            <nav id="toc" data-toggle="toc"></nav>
+            <div>
+                <button type="button" class="btn btn-outline-primary btn-sm mt-5" data-toggle="modal" data-target="#suggestQuestion">
+                    Предложить вопрос
+                </button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-outline-info btn-sm mt-2" data-toggle="modal" data-target="#iNeedMore">
+                    Хочу ещё
+                </button>
+            </div>
+            <div>
+                <button id="resetCheckboxes" class="btn btn-outline-warning btn-sm mt-2 d-none" id="resetCheckboxes">
+                    Сбросить чекбоксы
+                </button>
+            </div>
+            <div id="sidebar-footer" class="mt-3">
+                <p class="small">
+                    Сделал <a href="https://frey.today">Фрей</a>
+                    <br>
+                    Вдохновил <a href="https://github.com/davydovanton">@davydovanton</a>
+                    <br>
+                    <br>
+                    Читать: <a href="https://frey.su/salary-negotiations/">Зарплатные переговоры</a>
+                    <br>
+                    Учиться: <a href="https://whereismymoney.club">Курс по финансовой грамотности Where Is My Money</a>
+                </p>
+            </div>
+        </div>
+        <div class="offset-md-3 col-md-9 col-lg-8 col-xs-12">
+            <h1 data-toc-skip>AskAbout</h1>
+            <h1 data-toc-skip>original : https://askabout.company/</h1>
+            <h2 class="mt-5">Что это и зачем</h2>
+            <p>
+                Когда настаёт момент искать работу, впервые или в очередной раз, у соискателя зачастую может не быть чёткого
+                представления, что ему полезно и важно узнать о компании, в которой он, возможно, будет работать в ближайшие
+                месяцы или годы. На этот случай полезно иметь под рукой список вопросов, которые можно было бы задать
+                HR-сотруднику компании, а так же, на последующих этапах общения, людям, которые ближе непосредственно к тому,
+                с чем вам предстоит работать.
+            </p>
+            <p>Полученные ответы позволят вам наглядно увидеть, что в компании вам нравится, что нет, и составить
+                полноценное мнение о том, стоит ли в ней работать.</p>
+            <p>
+                На этой странице собрано большинство таких вопросов.
+            </p>
+            <div id="howToUseCard" class="text-center mt-5">
+                <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#targetAudience" aria-expanded="false" aria-controls="targetAudience">
+                    ⬇️ Для кого это? ⬇️
+                </button>
+                <div class="collapse mt-3" id="targetAudience">
+                    <div class="card card-body">
+                        <p class="text-muted text-left">
+                            Приведённые ниже вопросы достаточно универсальны для разработчиков веб-приложений и для
+                            Ruby-разработчиков в частности. Однако, как минимум первая часть, "Вопросы к HR", могут пригодиться
+                            вообще любому, кто ищет работу и общается с компаниями.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <h2 class="mt-5" data-toc-text="Перед интервью">Что сделать перед собеседованием?</h2>
+            <p>Узнайте о компании побольше, поискав её в Google. Почитайте отзывы сотрудников компании. Если у вас есть
+                знакомые, работающие в этой компании, попросите их рассказать о ней. Вам необходима любая информация,
+                положительные и негативные отзывы.</p>
+            <p>Вероятнее всего, вам предстоит несколько этапов интервью. Как правило, в первую очередь вы будете говорить с
+                HR-менеджером компании. Он может рассказать о том, чем занимается компания, в общих чертах описать процессы и
+                основные не-технические нюансы устройства и работы.</p>
+            <p>На следующих этапах вы будете общаться с одним из технических специалистов компании, тимлидом или старшим
+                разработчиком. Иногда в качестве завершающего этапа интервью вам предложат пообщаться с менеджером команды, в
+                которой вам предстоит работать, или с техническим директором.</p>
+            <div id="howToUseCard" class="text-center mt-5">
+                <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#howToUse" aria-expanded="false" aria-controls="howToUse">
+                    ⬇️ Как пользоваться? ⬇️
+                </button>
+                <div class="collapse mt-3" id="howToUse">
+                    <div class="card card-body">
+                        <p class="text-muted text-left">
+                            Эту страницу удобно открыть перед очередным этапом общения с представителем компании и двигаться по
+                            списку, отмечая проговоренные пункты простым кликом по ним. Так вы не запутаетесь в вопросах и будете
+                            видеть, о чём уже поговорили, а что предстоит обсудить. Помеченные выполненными вопросы сохраняются в
+                            вашем браузере даже после перезагрузки страницы.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <h2 class="mt-5">Вопросы к HR</h2>
+            <h3 class="mt-4">О компании и вакансии</h3>
+            <div class="questions">
+                <ul>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="what-company-does" id="what-company-does">
+                        <label for="what-company-does">Чем занимается компания?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="what-company-does-sphere" id="what-company-does-sphere">
+                                <label for="what-company-does-sphere">Сфера деятельности, основные способы заработка компании, проекты
+                                    внутри компании</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="typical-work-week" id="typical-work-week">
+                        <label for="typical-work-week">Как выглядит типичная рабочая неделя?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="typical-work-week-planning-days" id="typical-work-week-planning-days">
+                                <label for="typical-work-week-planning-days">Есть ли выделенные дни для планирования недели или нечто
+                                    подобное?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="why-company-hires" id="why-company-hires">
+                        <label for="why-company-hires">Почему компания ищет нового работника?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="why-company-hires-previous-worker" id="why-company-hires-previous-worker">
+                                <label for="why-company-hires-previous-worker">Это расширение команды или замена ушедшего человека?
+                                    Если последнее, то почему он ушёл?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="responsibilities" id="responsibilities">
+                        <label for="responsibilities">Что будет входить в список обязанностей?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="responsibilities-change" id="responsibilities-change">
+                                <label for="responsibilities-change">Будут ли в будущем эти обязанности изменяться? С какими
+                                    сложностями может столкнуться сотрудник в этой позиции?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="position-preparing" id="position-preparing">
+                        <label for="position-preparing">Как лучше подготовиться к позиции?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="what-to-learn" id="what-to-learn">
+                                <label for="what-to-learn">Нужно ли изучить что-то заранее?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="who-is-boss" id="who-is-boss">
+                        <label for="who-is-boss">Кому непосредственно вы будете подчиняться?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="working-team-plans" id="working-team-plans">
+                                <label for="working-team-plans">С кем вы будете работать наиболее плотно? Есть ли планы на расширение
+                                    или сокращение вашей будущей команды?</label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <h3 class="mt-5">Финансовые вопросы</h3>
+            <div class="questions">
+                <ul>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="hiring-process" id="hiring-process">
+                        <label for="hiring-process">Как происходит устройство в компанию?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="hiring-law-salary" id="hiring-law-salary">
+                                <label for="hiring-law-salary">По ТК РФ или как-то иначе? Если иначе, то как? Белая зарплата или
+                                    серая, в какой валюте?</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="hiring-trial-period-docs" id="hiring-trial-period-docs">
+                                <label for="hiring-trial-period-docs">Как долго длится испытательный срок? Заключается ли договор с
+                                    первого дня работы?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="holidays-vacations" id="holidays-vacations">
+                        <label for="holidays-vacations">Как обстоят дела с отпусками, выходными, больничными и
+                            праздниками?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="vacation" id="vacation">
+                                <label for="vacation">Сколько дней в году отводится на оплачиваемый отпуск? Нужно ли часть его
+                                    обязательно брать на 2 недели или более? Через сколько недель или месяцев работы можно взять отпуск?
+                                    Нужно ли быть на связи в отпуске? </label>
+                            </li>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="sick-days" id="sick-days">
+                                <label for="sick-days">Как оплачивается больничный? Праздники по трудовому календарю РФ или как-то
+                                    иначе?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="how-will-company-pay" id="how-will-company-pay">
+                        <label for="how-will-company-pay">Как происходит оплата?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="how-often-payments-bonuses" id="how-often-payments-bonuses">
+                                <label for="how-often-payments-bonuses">Сколько раз в месяц, какими частями? Какого числа
+                                    выплачивается и выплачивается ли аванс, какого числа выплачивается оставшаяся часть зарплаты? Есть
+                                    ли в ежемесячной компенсации премиальная часть? Если да, то может ли компания лишить сотрудника этой
+                                    части? В каком случае?</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="bonuses" id="bonuses">
+                                <label for="bonuses">Есть ли премии?</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="bonuses-reasons" id="bonuses-reasons">
+                                <label for="bonuses-reasons">Если да, то по каким критериям их назначают?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="salary-up" id="salary-up">
+                        <label for="salary-up">Пересматривается ли зарплата у сотрудников?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="how-decide-when-to-up-salary" id="how-decide-when-to-up-salary">
+                                <label for="how-decide-when-to-up-salary">Если да, то с какой периодичностью? По каким
+                                    критериям?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="crunches" id="crunches">
+                        <label for="crunches">Как обстоят дела с переработками?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="chunches-payments" id="chunches-payments">
+                                <label for="chunches-payments">Часто ли возникает необходимость поработать дополнительно? Как
+                                    оплачиваются переработки?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="insurance-and-compensations" id="insurance-and-compensations">
+                        <label for="insurance-and-compensations">Есть ли медицинская страховка от компании и/или другие
+                            компенсации?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="medical-insurance" id="medical-insurance">
+                                <label for="medical-insurance">Если да, то с какого дня работы и что в неё включено?</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="other-compensations" id="other-compensations">
+                                <label for="other-compensations">Компенсация обедов, спорта или транспорта? Другие
+                                    компенсации?</label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <h3 class="mt-5">Карьерный рост и перспективы развития</h3>
+            <div class="questions">
+                <ul>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="learning-programs" id="learning-programs">
+                        <label for="learning-programs">Какие учебные программы доступны сотрудникам компании?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="learning-programs-participation-and-payment" id="learning-programs-participation-and-payment">
+                                <label for="learning-programs-participation-and-payment">На каких условиях в них можно участвовать?
+                                    Кто их оплачивает?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="career-growth" id="career-growth">
+                        <label for="career-growth">Какие есть возможности для карьерного и профессионального роста в
+                            компании?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="growth-ability-and-criteria" id="growth-ability-and-criteria">
+                                <label for="growth-ability-and-criteria">Предполагает ли рассматриваемая должность дальнейший
+                                    карьерный рост? Есть ли конкретные критерии для повышения?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="yearly-review" id="yearly-review">
+                        <label for="yearly-review">Есть ли годовое ревью?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="yearly-review-terms" id="yearly-review-terms">
+                                <label for="yearly-review-terms">Если да, то как оно выглядит, кто его проводит? На какие параметры
+                                    ориентируются при прохождении ревью?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="conferences" id="conferences">
+                        <label for="conferences">Представляют ли специалисты компанию на отраслевых конференциях? Как часто
+                            компания участвует в таких мероприятиях?</label>
+                    </li>
+                </ul>
+            </div>
+            <h3 class="mt-5">Культура компании</h3>
+            <div class="questions">
+                <ul>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="formality-in-company" id="formality-in-company">
+                        <label for="formality-in-company">Насколько формальная обстановка в компании?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="dressode" id="dressode">
+                                <label for="dressode">Есть ли дресскод?</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="fine" id="fine">
+                                <label for="fine">Есть ли штрафы? Если да, за что?</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="working-hours" id="working-hours">
+                                <label for="working-hours">Насколько гибкое начало рабочего дня?</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="memes" id="memes">
+                                <label for="memes">Как относятся к неформальному общению в чатах? Есть ли чаты для мемов и
+                                    оффтопа?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="company-communication" id="company-communication">
+                        <label for="company-communication">Как происходит коммуникация в компании?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="communication-options" id="communication-options">
+                                <label for="communication-options">Почта, Slack, Skype, Telegram, что-то иное?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="corporates" id="corporates">
+                        <label for="corporates">Как обстоят дела с корпоративами?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="company-holidays" id="company-holidays">
+                                <label for="company-holidays">Есть ли какие-то внутренние праздники компании, как они
+                                    выглядят?</label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <h3 class="mt-5">Неформальные вопросы</h3>
+            <p>Эти вопросы можно попробовать задать, если у вас складывается комфортное общение с HR-менеджером.</p>
+            <div class="questions">
+                <ul>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="best-of-working-in-company" id="best-of-working-in-company">
+                        <label for="best-of-working-in-company">Что самое приятное в работе в этой компании?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="worst-of-working-in-company" id="worst-of-working-in-company">
+                        <label for="worst-of-working-in-company">А самое неприятное?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="what-you-want-to-know" id="what-you-want-to-know">
+                        <label for="what-you-want-to-know">Если бы HR устраивался в эту компанию, что он хотел бы о ней
+                            узнать?</label>
+                    </li>
+                </ul>
+            </div>
+            <h2 class="mt-5">Технические вопросы</h2>
+            <p>После общения с HR-менеджером настаёт этап технического интервью. Ваш следующий собеседник сможет рассказать
+                о технической части проектов компании и о том, как устроены дела со стороны разработки.</p>
+            <h3 class="mt-5">Технологии</h3>
+            <div class="questions">
+                <ul>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="tech-stack" id="tech-stack">
+                        <label for="tech-stack">Какие стеки технологий используются в компании?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="unusual-stack-and-why" id="unusual-stack-and-why">
+                                <label for="unusual-stack-and-why">Есть ли какие-то нестандартные отклонения от привычных для этих
+                                    стеков
+                                    инструментов? Если да, то почему?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="business-logic" id="business-logic">
+                        <label for="business-logic">Как происходит работа с бизнес-логикой?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="business-logic-code" id="business-logic-code">
+                                <label for="business-logic-code">Где находится код для работы с ней?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="feature-toggling" id="feature-toggling">
+                        <label for="feature-toggling">Используются ли фича-флаги (фича-тоглинг)?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="feature-toggling-how" id="feature-toggling-how">
+                                <label for="feature-toggling-how">Если да, то как он реализован? Какие решения использованы?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="loads" id="loads">
+                        <label for="loads">Какие нагрузки сейчас на проектах компании?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="loads-on-your-future-project" id="loads-on-your-future-project">
+                                <label for="loads-on-your-future-project">В частности, какие нагрузки на проекте, с которым предстоит
+                                    работать вам?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="working-with-logs" id="working-with-logs">
+                        <label for="working-with-logs">Как организована работа с логами?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="log-storage-and-search" id="log-storage-and-search">
+                                <label for="log-storage-and-search">Куда они отправляются, есть ли удобный поиск по логам?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="apm" id="apm">
+                        <label for="apm">Есть ли мониторинг производительности? Другие мониторинги</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="apm-tools-and-plans" id="apm-tools-and-plans">
+                                <label for="apm-tools-and-plans">Если да, то какие инструменты для него используются? Если нет, то
+                                    почему и есть ли планы его настроить?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="error-handling" id="error-handling">
+                        <label for="error-handling">Как происходит работа с ошибками?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="error-storage-and-fixing" id="error-storage-and-fixing">
+                                <label for="error-storage-and-fixing">Они куда-то централизованно ссыпаются? Как организована работа
+                                    над их устранением?</label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <h3 class="mt-5">Базы данных</h3>
+            <div class="questions">
+                <ul>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="db" id="db">
+                        <label for="db">Какая (какие) база данных основная и почему именно она?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="cache" id="cache">
+                        <label for="cache">Используется ли кэш и где он хранится, если да?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="queues" id="queues">
+                        <label for="queues">Как производится работа с очередями? Kafka, RabbitMQ, что-то ещё?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="event-sourcing" id="event-sourcing">
+                        <label for="event-sourcing">Есть ли Event Sourcing?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="backround-jobs" id="backround-jobs">
+                        <label for="backround-jobs">Как производится работа с фоновыми задачами?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="bg-job-tools" id="bg-job-tools">
+                                <label for="bg-job-tools">Какие инструменты для этого используются? (Sidekiq, Rescue, Faktory
+                                    etc?)</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="elastic-user-search" id="elastic-user-search">
+                        <label for="elastic-user-search">Есть ли ElasticSearch? Если да, то как он используется? Что используется
+                            для пользовательского поиска?</label>
+                    </li>
+                </ul>
+            </div>
+            <h3 class="mt-5">Качество кода</h3>
+            <div class="questions">
+                <ul>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="tests" id="tests">
+                        <label for="tests">Есть ли автоматические тесты?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="test-coverage" id="test-coverage">
+                                <label for="test-coverage">Какое покрытие тестами? Как долго они выполняются? Какие виды тестов есть в
+                                    проекте? Каких видов больше? Пишут ли разработчики тесты на свой код?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="dev-standards" id="dev-standards">
+                        <label for="dev-standards">Есть ли стандарты, которые необходимо использовать при разработке?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="what-dev-standards" id="what-dev-standards">
+                                <label for="what-dev-standards">Разработка в отдельных ветках гита? Соблюдение лучших практик?
+                                    Понятные именования коммитов и веток в гите?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="cicd" id="cicd">
+                        <label for="cicd">Есть ли CI/CD?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="which-ci-cd-whats-inside" id="which-ci-cd-whats-inside">
+                                <label for="which-ci-cd-whats-inside">Если да, то какие? Что в них работает?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="linters" id="linters">
+                        <label for="linters">Есть ли линтеры?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="linters-tools" id="linters-tools">
+                                <label for="linters-tools">Rubocop? Overcommit? Какие-то ещё?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="legacy" id="legacy">
+                        <label for="legacy">Есть ли легаси и насколько его много?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="legacy-work-plans" id="legacy-work-plans">
+                                <label for="legacy-work-plans">Как происходит работа с легаси? Есть ли планы на будущее относительно
+                                    него?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="code-review" id="code-review">
+                        <label for="code-review">Кто участвует в code review?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="tech-debt" id="tech-debt">
+                        <label for="tech-debt">Как устроена работа с техническим долгом?</label>
+                    </li>
+                </ul>
+            </div>
+            <h3 class="mt-5">Процессы</h3>
+            <div class="questions">
+                <ul>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="task-process" id="task-process">
+                        <label for="task-process">Как выглядит процесс постановки задач в проектах?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="support" id="support">
+                        <label for="support">Кто занимается поддержкой проектов?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="release-check-acceptance" id="release-check-acceptance">
+                        <label for="release-check-acceptance">Кто занимается приёмкой задач и проверкой релизов?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="scrum-kanban" id="scrum-kanban">
+                        <label for="scrum-kanban">Kanban? Scrum? Agile? Waterfall?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="teamleads-work" id="teamleads-work">
+                        <label for="teamleads-work">Чем занимаются тимлиды?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="who-talks-to-business" id="who-talks-to-business">
+                        <label for="who-talks-to-business">Кто общается с бизнесом?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="business-access" id="business-access">
+                        <label for="business-access">Есть ли у разработчиков доступ к бизнесу?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="team-members" id="team-members">
+                        <label for="team-members">Кто есть в команде?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="who-is-in-the-team" id="who-is-in-the-team">
+                                <label for="who-is-in-the-team">Есть ли фронтендеры? Бэкендеры? Девопсы?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="inner-wiki" id="inner-wiki">
+                        <label for="inner-wiki">Есть ли вики или плейбук, где описаны основные нюансы и процессы проектов?</label>
+                    </li>
+                </ul>
+            </div>
+            <h3 class="mt-5">Деплой</h3>
+            <div class="questions">
+                <ul>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="code-storage" id="code-storage">
+                        <label for="code-storage">Где хранится код?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="how-company-deploy" id="how-company-deploy">
+                        <label for="how-company-deploy">Как происходит деплой?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="stages-rollback" id="stages-rollback">
+                                <label for="stages-rollback">Есть ли стейджи? Как деплоятся стейджи, как продакшен? Как обстоят дела с
+                                    откатом релиза при необходимости?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="infrastructure" id="infrastructure">
+                        <label for="infrastructure">Кто занимается обслуживанием инфрастуктуры?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="servers" id="servers">
+                                <label for="servers">Настройка серверов, доменов и так далее</label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <h3 class="mt-5">Open Source</h3>
+            <div class="questions">
+                <ul>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="company-opensource" id="company-opensource">
+                        <label for="company-opensource">Есть ли в компании опенсорсные проекты?</label>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="custom-checkbox" name="opensource-support" id="opensource-support">
+                                <label for="opensource-support">Поддерживается ли или поощряется ли создание опенсорсных проектов
+                                    внутри компании?</label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="opensource-contributing" id="opensource-contributing">
+                        <label for="opensource-contributing">Поддерживается ли контрибьютинг в чужие проекты?</label>
+                    </li>
+                </ul>
+            </div>
+            <h3 class="mt-5">Доменная область</h3>
+            <div class="questions">
+                <ul>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="domain-vocabulay" id="domain-vocabulay">
+                        <label for="domain-vocabulay">Есть ли словарь с основными понятиями внутри проектов?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" class="custom-checkbox" name="domain-guy" id="domain-guy">
+                        <label for="domain-guy">Есть ли человек, который разбирается в области, для которой разрабатывается
+                            проект, можно ли задавать ему вопросы?</label>
+                    </li>
+                </ul>
+            </div>
+            <h2 class="mt-5">Что дальше?</h2>
+            <p class="mb-5">В конце каждого этапа интервью не забывайте спросить, что последует за ним, понадобятся ли
+                другие этапы и как скоро можно ожидать обратную связь.</p>
+        </div>
+    </div>
+
+    <div class="modal fade" id="suggestQuestion" tabindex="-1" role="dialog" aria-labelledby="suggestQuestionLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScTdcOfquAOw2e8kJnj8e7uL2JyWnHVhtEbkuG7cezX1iOy9g/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="iNeedMore" tabindex="-1" role="dialog" aria-labelledby="iNeedMoreLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScZ2YIHyHgWBzZHT5lIctC6_v1WJ-TOluqaR5RJZs3mUUSaiQ/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(62896906, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/62896906" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+
+</footer>
+</body>
+</html>
